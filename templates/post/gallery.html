@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}{% trans "Галерея" %}{% endblock title %}
+{% block content %}
+        <section class="breadcrumb_area">
+            <div class="overlay" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="" style="background: url({% static 'image/bg.jpg' %}) no-repeat scroll 0 / cover;"></div>
+            <div class="container">
+                <div class="page-cover text-center">
+                    <h2 class="page-cover-tittle">{% trans "Галерея" %}</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="/">{% trans "Главная" %}</a></li>
+                        <li class="active">{% trans "Галерея" %}</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gallery_area section_gap">
+            <div class="container">
+                <div class="section_title text-center">
+                    <h2 class="title_color">{% trans "Фотогалерея" %}</h2>
+                </div>
+                <div class="row imageGallery1" id="gallery">
+                    {% for gallery in galleries %}
+                    <div class="col-md-4 gallery_item">
+                        <div class="gallery_img">
+                            <img src="{{ gallery.img.url }}" alt="">
+                            <div class="hover">
+                            	<a class="light" href="{{ gallery.img.url }}"><i class="fa fa-expand"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </section>
+{% endblock content %}

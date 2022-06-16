@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}Контакты{% endblock title %}
+{% block content %}
+        <section class="breadcrumb_area">
+            <div class="overlay" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="" style="background: url({% static 'image/bg.jpg' %}) no-repeat scroll 0 / cover;"></div>
+            <div class="container">
+                <div class="page-cover text-center">
+                    <h2 class="page-cover-tittle">{% trans "Контакты" %} </h2>
+                    <ol class="breadcrumb">
+                        <li><a href="/">{% trans "Главная" %}</a></li>
+                        <li class="active">{% trans "Контакты" %} </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact_area section_gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="contact_info">
+                            <div class="info_item mb-4">
+                                <i class="lnr lnr-home"></i>
+                                <h6>{% trans "Отели Иссык-Куля" %} </h6>
+                            </div>
+                            <div class="info_item mb-4">
+                                <i class="lnr lnr-phone-handset"></i>
+                                <h6><a href="tel:+996 705 555 666">+996 555 666</a></h6>
+                            </div>
+                            <div class="info_item mb-4">
+                                <i class="lnr lnr-envelope"></i>
+                                <h6><a href="mailto:ik@gmail.com">ik@gmail.com</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <form class="row contact_form" method="post"  novalidate="novalidate">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{ form.name }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.subject }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.messages }}
+                            </div>
+                            <div class="col-md-12 text-right">
+                                <button type="submit" value="submit" class="btn theme_btn button_hover">{% trans "Отправить сообщение" %} </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}
